@@ -16,6 +16,7 @@
 		01AD262E1BE17215009BF4D2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD262D1BE17215009BF4D2 /* SearchViewController.swift */; };
 		920CA7DF1BE2C32000CA8DDC /* RepresentativeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CA7DE1BE2C32000CA8DDC /* RepresentativeTableViewController.swift */; };
 		920CA7E11BE2C34E00CA8DDC /* Representative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CA7E01BE2C34E00CA8DDC /* Representative.swift */; };
+		920CA7E31BE2CA5100CA8DDC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920CA7E21BE2CA5100CA8DDC /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		01AD262D1BE17215009BF4D2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		920CA7DE1BE2C32000CA8DDC /* RepresentativeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepresentativeTableViewController.swift; sourceTree = "<group>"; };
 		920CA7E01BE2C34E00CA8DDC /* Representative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Representative.swift; sourceTree = "<group>"; };
+		920CA7E21BE2CA5100CA8DDC /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				920CA7DE1BE2C32000CA8DDC /* RepresentativeTableViewController.swift */,
 				01AD26031BE171D9009BF4D2 /* Main.storyboard */,
 				920CA7E01BE2C34E00CA8DDC /* Representative.swift */,
+				920CA7E21BE2CA5100CA8DDC /* NetworkController.swift */,
 				01AD26061BE171D9009BF4D2 /* Assets.xcassets */,
 				01AD26081BE171D9009BF4D2 /* LaunchScreen.storyboard */,
 				01AD260B1BE171D9009BF4D2 /* Info.plist */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920CA7E31BE2CA5100CA8DDC /* NetworkController.swift in Sources */,
 				920CA7E11BE2C34E00CA8DDC /* Representative.swift in Sources */,
 				01AD262E1BE17215009BF4D2 /* SearchViewController.swift in Sources */,
 				01AD26001BE171D9009BF4D2 /* AppDelegate.swift in Sources */,
