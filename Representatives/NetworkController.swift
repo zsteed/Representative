@@ -9,59 +9,28 @@
 import UIKit
 
 
-class NetworkController {
+class NetworkController: NSObject {
     
-    static func searchRepresentatives(searchString: String, callback: ([Representative]?, NSError?) -> ()) {
-        
-        let preparedSearchString = searchString.stringByReplacingOccurrencesOfString(" ", withString: "+")
-        
-        let stringUrl = "http://whoismyrepresentative.com/getall_reps_bystate.php?state=\(preparedSearchString)&output=json"
-        
-        if let url = NSURL(string: stringUrl) {
-            
-            let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
-                if let error = error {
-                    callback(nil, error)
-                    return
-                }
-                
-                guard let data = data else {
-                    return
-                }
-                
-                let jsonObject: AnyObject
-                
-                do {
-                    jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
-                } catch(let error as NSError) {
-                    callback(nil, error)
-                    return
-                }
-                
-                if let searchObject = jsonObject as? [String: [AnyObject]],
-                    let states = searchObject["Search"] {
-                        
-                        var representativeObjects: [Representative] = []
-                        
-                        states.forEach({ (jsonRepresentative) -> () in
-                            if let representativeObject = Representative(data: jsonRepresentative) {
-                                representativeObjects.append(representativeObject)
-                            }
-                            
-                        })
-                        
-                        callback(representativeObjects, nil)
-                        
-                        
-                } else {
-                    
-                    callback(nil, nil)
-                    
-                }
-            }
-            
-            dataTask.resume()
-        }
+    static let baseURLString = "http://whoismyrepresentative.com"
+    
+    static func searchURLByState(state: String) -> NSURL {
+        return NSURL(string: NetworkController.baseURLString + "/getall_reps_bystate.php?state=\(state)&output=json")!
     }
+    
+    static func dataAtURL(url: NSURL, completion:(resultData: NSData?) -> Void) {
+        let session = NSURLSession.sharedSession()
+        
+        let dataTask = session.dataTaskWithURL(url) { (data, _, error) -> Void in
+            
+            guard let data = data else {
+                print(error?.localizedDescription)
+                completion(resultData: nil)
+                return
+            }
+            completion(resultData: data)
+        }
+        dataTask.resume()
+    }
+    
 }
     
