@@ -10,6 +10,15 @@ import Foundation
 
 class Representative {
     
+    static let kNameKey = "name"
+    static let kPartyKey = "party"
+    static let kStateKey = "state"
+    static let kDistrictKey = "district"
+    static let kPhoneKey = "phone"
+    static let kOfficeKey = "office"
+    static let kLinkKey = "link"
+    static let kResultsKey = "results"
+    
     var name: String?
     var party: String?
     var state: String?
@@ -18,17 +27,15 @@ class Representative {
     var office: String?
     var link: String?
     
-    init?(data: AnyObject?) {
+    init(jsonDictionary: [String: String]) {
         
-        guard let data = data as? [String: String] else { return nil }
-        
-        self.name = data["name"]
-        self.party = data["party"]
-        self.state = data["state"]
-        self.district = data["district"]
-        self.phone = data["phone"]
-        self.office = data["office"]
-        self.link = data["link"]
+        self.name = jsonDictionary[Representative.kNameKey]
+        self.party = jsonDictionary[Representative.kPartyKey]
+        self.state = jsonDictionary[Representative.kStateKey]
+        self.district = jsonDictionary[Representative.kDistrictKey]
+        self.phone = jsonDictionary[Representative.kPhoneKey]
+        self.office = jsonDictionary[Representative.kOfficeKey]
+        self.link = jsonDictionary[Representative.kLinkKey]
         
     }
     
