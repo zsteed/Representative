@@ -10,15 +10,13 @@ import Foundation
 
 class RepresentativeController {
 
-    static func searchRepsByState(state: String, callback: (representatives: [Representative]) -> Void) {
+    static func searchRepsByState(state: String, completion: (representatives: [Representative]) -> Void) {
 
         let url = NetworkController.searchURLByState(state)
 
-
         NetworkController.dataAtURL(url) { (resultData) -> Void in
             guard let representativeData = resultData  else {
-                print("NO DATA RETURNED")
-                callback(representatives: [])
+                completion(representatives: [])
                 return
             }
 
@@ -33,12 +31,12 @@ class RepresentativeController {
                     let rep = Representative(jsonDictionary: dictionary)
                     arrayOfRepresentativeModelObjects.append(rep)
                 }
-                
-                callback(representatives: arrayOfRepresentativeModelObjects)
-                
+
+                completion(representatives: arrayOfRepresentativeModelObjects)
+
             } catch {
                 print("Error serializing JSON")
-                callback(representatives: [])
+                completion(representatives: [])
                 return
             }
         }

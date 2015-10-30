@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    //MARK: - Properties
+    // MARK: - Properties
 
     let states = ["AK", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
@@ -18,8 +18,7 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     @IBOutlet weak var pickerView: UIPickerView!
 
-    @IBAction func searchButtonTapped(sender: UIButton) {
-
+    @IBAction func searchButtonTapped() {
         let index = self.pickerView.selectedRowInComponent(0)
 
         let stateString = self.states[index]
@@ -34,7 +33,7 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 })
 
             } else {
-                print("There was an error searching for representatives")
+                print("There was an error searching for reps.")
             }
         }
     }
@@ -50,7 +49,7 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    //MARK: - UIPickerView Protocol Methods
+    // MARK: - UIPickerView Protocol Methods
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -63,4 +62,5 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.states[row]
     }
+
 }
